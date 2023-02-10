@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Mise a jour
-sudo apt-get update -y
-sudo apt-get upgrade -y
+apt-get update -y
+apt-get upgrade -y
 
 # Installation des dépandances
-sudo apt-get install apache2 php7.3 libapache2-mod-php7.3 mysql-server php7.3-mysql php7.3-gd php7.3-mbstring php7.3-xml
+apt-get install apache2 php7.3 libapache2-mod-php7.3 mysql-server php7.3-mysql php7.3-gd php7.3-mbstring php7.3-xml
 
 # Installation de TeamPass
 wget https://github.com/teampassnet/teampass/releases/download/2.1.27.29/teampass-2.1.27.29.zip
@@ -14,12 +14,12 @@ wget https://github.com/teampassnet/teampass/releases/download/2.1.27.29/teampas
 unzip teampass-2.1.27.29.zip
 
 # Déplacer fichier décompréser dans Apach
-sudo cp -r teampass /var/www/html/teampass
+cp -r teampass /var/www/html/teampass
 
 # Modiffier les autorisation de TeamPass
-sudo chown -R www-data:www-data /var/www/html/teampass
-sudo chmod 775 /var/www/html/teampass/includes
-sudo chmod 775 /var/www/html/teampass/install
+chown -R www-data:www-data /var/www/html/teampass
+chmod 775 /var/www/html/teampass/includes
+chmod 775 /var/www/html/teampass/install
 
 # Logine a la DB
 mysql -u root -p
@@ -34,7 +34,7 @@ EXIT;
 echo -e  "\003[31m     http://[hostname]/teampass/install/install.php"
 
 # Supretion du dossier d'installation pour securité
-sudo rm -r /var/www/html/teampass/install
+rm -r /var/www/html/teampass/install
 
 
 
