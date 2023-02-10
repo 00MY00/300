@@ -28,11 +28,12 @@ mysql_secure_installation
 
 # Login SQL
 echo ""
+echo "Copier et clik droit !"
 echo ""
-echo -e "\033[32mcreate database teampass;\033[00m"
+echo -e "\033[32mcreate database teampass;"
 echo -e "\033[32mgrant all privileges on teampass.* to teampass@localhost identified by "password";\033[00m"
 echo -e "flush privileges;"
-echo -e "exit;"
+echo -e "exit;\033[00m"
 echo ""
 echo ""
 mysql -u root -p
@@ -74,9 +75,13 @@ a2ensite teampass
 systemctl restart apache2
 
 # verifier status
+echo ""
+echo "" 
 echo -e "\033[32m"
-systemctl status apache2
+systemctl status apache2 | grep Active:
 echo -e "\033[00m"
+echo ""
+echo ""
 
 # Corectif extantion php
 sudo apt-get install php-gmp -y
