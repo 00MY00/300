@@ -1,43 +1,67 @@
 #!/bin/bash
-
+# Tuto : https://www.howtoforge.com/how-to-setup-teampass-password-manager-on-debian-11/
 # Mise a jour
-apt-get update -y
-apt-get upgrade -y
+apt  update -y
+apt  upgrade -y
 
 # Installation des dépandances
-apt-get install apache2 php7.3 libapache2-mod-php7.3 mysql-server php7.3-mysql php7.3-gd php7.3-mbstring php7.3-xml
+#erreur
+# apt  install apache2 php7.3 libapache2-mod-php7.3 mysql-server php7.3-mysql php7.3-gd php7.3-mbstring php7.3-xml
+apt install apache2 apache2-utils mariadb-server mariadb-client php7.4 libapache2-mod-php7.4 php7.4-mysql php-common php7.4-cli php7.4-common php7.4-json php7.4-opcache php7.4-readline php7.4-bcmath php7.4-curl php7.4-fpm php7.4-gd php7.4-xml php7.4-mbstring -y
 
-# Installation de TeamPass
-wget https://github.com/teampassnet/teampass/releases/download/2.1.27.29/teampass-2.1.27.29.zip
+# Change setings
+# max_execution_time = 60
+# date.timezone = Europ/Zurich
+sed -i 's/ax_execution_time = 30/ax_execution_time = 60/g' /etc/php/7.4/apache2/php.ini
+sed -i 's/;date.timezon =/date.timezon = Europe\/Zurich/g' /etc/php/7.4/apache2/php.ini
 
-# Décompression
-unzip teampass-2.1.27.29.zip
+nano /etc/php/7.4/apache2/php.ini
 
-# Déplacer fichier décompréser dans Apach
-cp -r teampass /var/www/html/teampass
+# Restart Apache2
+systemctl restart apache2
 
-# Modiffier les autorisation de TeamPass
-chown -R www-data:www-data /var/www/html/teampass
-chmod 775 /var/www/html/teampass/includes
-chmod 775 /var/www/html/teampass/install
+# Add MDP on MariaDB
+mysql_secure_installation
 
-# Logine a la DB
+
+
+# Login SQL
+echo ""
+echo ""
+echo -e "\033[32mcreate database teampass;\033[00m"
+echo -e "\033[32mgrant all privileges on teampass.* to teampass@localhost identified by "password";\033[00m"
+echo -e "flush privileges;"
+echo -e "exit;"
+echo ""
+echo ""
 mysql -u root -p
 
-# Creation de Base de donnée
-CREATE DATABASE teampass;
-GRANT ALL PRIVILEGES ON teampass.* TO 'teampass'@'localhost' IDENTIFIED BY 'PASSWORD';
-FLUSH PRIVILEGES;
-EXIT;
 
-# Acceder a l'interfase Web de TeamPass
-echo -e  "\003[31m     http://[hostname]/teampass/install/install.php\033[00m"
+# Install git
+apt install git -y
 
-# Supretion du dossier d'installation pour securité
-rm -r /var/www/html/teampass/install
+# Install Teampass
+cd /var/www/html/
+git clone https://github.com/nilsteampassnet/TeamPass.git
 
+# Change permissions
+chown -R www-data:www-data TeamPass
+chmod -R 775 /var/www/html/TeamPass
 
+# Create an Apache Virtual Host for Teampass
 
+nano /etc/apache2/sites-available/teampass.conf
 
+# redémarrage Teampass
+a2ensite teampass
+systemctl restart apache2
+
+# verifier status
+echo -e "\033[32m"
+systemctl status apache2
+echo -e "\033[00m"
+
+# Open Teampass
+http://teampass.example.com
 
 
