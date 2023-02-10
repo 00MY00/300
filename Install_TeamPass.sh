@@ -1,4 +1,5 @@
 #!/bin/bash
+# Pour Ubuntu ou Debian ! 
 # Tuto : https://www.howtoforge.com/how-to-setup-teampass-password-manager-on-debian-11/
 # Mise a jour
 apt  update -y
@@ -76,6 +77,10 @@ systemctl restart apache2
 echo -e "\033[32m"
 systemctl status apache2
 echo -e "\033[00m"
+
+# Corectif extantion php
+sudo apt-get install php-gmp -y
+
 
 # Open Teampass
 apt install lynx -y
