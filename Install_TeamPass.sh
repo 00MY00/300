@@ -95,12 +95,13 @@ echo "<html>" >> link.html
 echo "<body>" >> link.html
 
 echo "<a href="http://localhost/TeamPass/install/install.php">Cliquez ici pour accéder au lien</a>" >> link.html
-
+echo "<p1> Suprimée le repertoire Install qui se situ dans teampass pour vou login aprè la configuration</p1>"
 echo "</body>" >> link.html
 echo "</html>" >> link.html
 
 
 echo "\033[35mhttp://localhost/TeamPass/install/install.php\033[00m"
+
 
 lynx link.html
 
