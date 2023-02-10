@@ -78,6 +78,20 @@ systemctl status apache2
 echo -e "\033[00m"
 
 # Open Teampass
-http://teampass.example.com
+apt install lynx -y
+
+echo "<!DOCTYPE html>" > link.html
+echo "<html>" >> link.html
+echo "<body>" >> link.html
+
+echo "<a href="http://localhost/Teampass/install/install.php">Cliquez ici pour accéder au lien</a>" >> link.html
+
+echo "</body>" >> link.html
+echo "</html>" >> link.html
 
 
+echo "\033[35mhttp://localhost/Teampass/install/install.php\033[00m"
+
+lynx link.html
+
+exit
