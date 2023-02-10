@@ -50,8 +50,6 @@ chmod -R 775 /var/www/html/TeamPass
 
 # Create an Apache Virtual Host for Teampass
 
-nano /etc/apache2/sites-available/teampass.conf
-
 echo "<VirtualHost *:80>" > /etc/apache2/sites-available/teampass.conf
 echo "     ServerAdmin admin@example.com" >> /etc/apache2/sites-available/teampass.conf
 echo "     DocumentRoot /var/www/html/TeamPass  " >> /etc/apache2/sites-available/teampass.conf
@@ -67,6 +65,8 @@ echo "     ErrorLog ${APACHE_LOG_DIR}/teampass_error.log" >> /etc/apache2/sites-
 echo "     CustomLog ${APACHE_LOG_DIR}/teampass_access.log combined" >> /etc/apache2/sites-available/teampass.conf
 echo " " >> /etc/apache2/sites-available/teampass.conf
 echo "</VirtualHost>" >> /etc/apache2/sites-available/teampass.conf
+
+nano /etc/apache2/sites-available/teampass.conf
 
 # redémarrage Teampass
 a2ensite teampass
