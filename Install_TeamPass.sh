@@ -31,7 +31,7 @@ FLUSH PRIVILEGES;
 EXIT;
 
 # Acceder a l'interfase Web de TeamPass
-echo -e  "\003[31m     http://[hostname]/teampass/install/install.php"
+echo -e  "\003[31m     http://[hostname]/teampass/install/install.php\033[00m"
 
 # Supretion du dossier d'installation pour securité
 rm -r /var/www/html/teampass/install
