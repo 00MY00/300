@@ -2,6 +2,7 @@
 # Pour Ubuntu ou Debian ! 
 # Tuto : https://www.howtoforge.com/how-to-setup-teampass-password-manager-on-debian-11/
 # Mise a jour
+# Debian sudo user -> su - USERNAM
 apt  update -y
 apt  upgrade -y
 
@@ -53,9 +54,9 @@ chmod -R 775 /var/www/html/TeamPass
 # Create an Apache Virtual Host for Teampass
 
 echo "<VirtualHost *:80>" > /etc/apache2/sites-available/teampass.conf
-echo "     ServerAdmin admin@example.com" >> /etc/apache2/sites-available/teampass.conf
+echo "     ServerAdmin admin@module300.local" >> /etc/apache2/sites-available/teampass.conf
 echo "     DocumentRoot /var/www/html/TeamPass  " >> /etc/apache2/sites-available/teampass.conf
-echo "     ServerName teampass.example.com" >> /etc/apache2/sites-available/teampass.conf
+echo "     ServerName teampass.module300.local" >> /etc/apache2/sites-available/teampass.conf
 echo " " >> /etc/apache2/sites-available/teampass.conf
 echo "     <Directory /var/www/html/TeamPass>" >> /etc/apache2/sites-available/teampass.conf
 echo "          Options FollowSymlinks" >> /etc/apache2/sites-available/teampass.conf
