@@ -16,7 +16,7 @@ apt install apache2 apache2-utils mariadb-server mariadb-client php7.4 libapache
 # date.timezone = Europ/Zurich
 sed -i 's/ax_execution_time = 30/ax_execution_time = 60/g' /etc/php/7.4/apache2/php.ini
 sed -i 's/;date.timezon =/date.timezon = Europe\/Zurich/g' /etc/php/7.4/apache2/php.ini
-
+sed -i 's/;extension=gmp/extension=gmp/g' /etc/php/7.4/apache2/php.ini
 nano /etc/php/7.4/apache2/php.ini
 
 # Restart Apache2
