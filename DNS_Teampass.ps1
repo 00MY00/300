@@ -40,6 +40,10 @@ For ([int]$i = 0;$i -lt 1;)
 For ([int]$i = 0;$i -lt 1;)
 {
     clear
+    Write-Host ""
+    Write-Host "List DNS Server Zone"
+    Get-DnsServerZone
+    Write-Host ""
     Write-Host "`nEntez le nom de zone !"
     Write-Host "Exemple : local"
     [string]$ZoneName = Read-Host "► "
@@ -50,6 +54,28 @@ For ([int]$i = 0;$i -lt 1;)
     else {
         break
     }
+}
+
+
+# Ci besoin creation de la zone dns
+For ([int]$i = 0;$i -lt 1;)
+{
+    clear
+    Write-Host ""
+    Write-Host "List DNS Server Zone"
+    Get-DnsServerZone
+    Write-Host ""
+    Write-Host "Ci vous voulez crée la zone DNS entrée la ici cinon laiser vide"
+    [string]$ZoneDNS = Read-Host "► "
+    if ([string]::IsNullOrEmpty($Name)) {
+        break
+    }
+    else {
+        Add-DnsServerZone -Name "$Name.$ZoneName" -ZoneType Primary -ReplicationScope Domain
+        break
+    }
+
+
 }
 
 # Recapitulatif
@@ -91,6 +117,7 @@ if ($? -eq $True) {
     Write-Host "`n"
     Write-Host "`n"
     Write-Host "Info DNS "
+    Get-DnsClientServerAddress
     Write-Host "`n"
     $pause = Read-Host "Entrée une touche pour terminer ! "
 }
@@ -100,6 +127,7 @@ else {
     Write-Host "Code : $?"
     Write-Host "`n"
     Write-Host "Info DNS "
+    Get-DnsClientServerAddress
     Write-Host "`n"
     $pause = Read-Host "Entrée une touche pour terminer ! "
 }
