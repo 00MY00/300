@@ -65,13 +65,13 @@ For ([int]$i = 0;$i -lt 1;)
     Write-Host "List DNS Server Zone"
     Get-DnsServerZone
     Write-Host ""
-    Write-Host "Ci vous voulez crée la zone DNS entrée la ici cinon laiser vide"
+    Write-Host "Ci vous voulez crée la zone DNS entrée ok cinon laiser vide"
     [string]$ZoneDNS = Read-Host "► "
     if ([string]::IsNullOrEmpty($Name)) {
         break
     }
     else {
-        Add-DnsServerZone -Name "$Name.$ZoneName" -ZoneType Primary -ReplicationScope Domain
+        Add-DnsServerZone -Name "$ZoneName" -ZoneType Primary -ReplicationScope Domain
         break
     }
 
