@@ -79,6 +79,22 @@ For ([int]$i = 0;$i -lt 1;)
 # Commande Final
 Add-DnsServerResourceRecordA -Name "$Name" -ZoneName "$ZoneName" -IPv4Address "$IP" -TimeToLive 01:00:00
 
+if ($? -eq $True) {
+    clear
+    Write-Host "`n"
+    Write-Host "Récapitulatife de l'ajout d'adress DNS" -ForegroundColor Yellow
+    Write-Host "---------------"
+    Write-Host "IP               - $IP" -ForegroundColor DarkCyan
+    Write-Host "Name             - $Name" -ForegroundColor DarkCyan
+    Write-Host "ZoneName         - $ZoneName" -ForegroundColor DarkCyan
+    Write-Host "TTL              - 01:00:00" -ForegroundColor Magenta
+    Write-Host "`n"
+    Write-Host "`n"
+    Write-Host "Info DNS "
+    Get-DnsClientServerAddress
+    Write-Host "`n"
+    $Validation = Read-Host "Entrée une touche pour terminer ! "
+}
 
 
 
