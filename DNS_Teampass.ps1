@@ -91,11 +91,18 @@ if ($? -eq $True) {
     Write-Host "`n"
     Write-Host "`n"
     Write-Host "Info DNS "
-    Get-DnsClientServerAddress
     Write-Host "`n"
-    $Validation = Read-Host "Entrée une touche pour terminer ! "
+    $pause = Read-Host "Entrée une touche pour terminer ! "
 }
 
+else {
+    Write-Host "Code de Fin etrange !"
+    Write-Host "Code : $?"
+    Write-Host "`n"
+    Write-Host "Info DNS "
+    Write-Host "`n"
+    $pause = Read-Host "Entrée une touche pour terminer ! "
+}
 
 
 
