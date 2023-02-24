@@ -1,6 +1,7 @@
 ﻿# DomainName
 For ([int]$i = 0;$i -lt 1;)
 {
+    clear
     Write-Host "`nEntez le nom de votre domaine !"
     Write-Host "Exemple : example.local"
     [string]$DomainName = Read-Host "► "
@@ -17,6 +18,7 @@ For ([int]$i = 0;$i -lt 1;)
 # DomainNetbiosName
 For ([int]$i = 0;$i -lt 1;)
 {
+    clear
     Write-Host "`nEntez le Nom Domain Net bios !"
     Write-Host "Exemple : EXAMPLE"
     [string]$DomainNetbiosName = Read-Host "► "
@@ -33,6 +35,7 @@ For ([int]$i = 0;$i -lt 1;)
 # Recapitulatife
 For ([int]$i = 0;$i -lt 1;)
 {
+    clear
     Write-Host "`n"
     Write-Host "RÃ©capitulatife" -ForegroundColor Yellow
     Write-Host "---------------"
