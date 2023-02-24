@@ -37,7 +37,7 @@ For ([int]$i = 0;$i -lt 1;)
 {
     clear
     Write-Host "`n"
-    Write-Host "RÃ©capitulatife" -ForegroundColor Yellow
+    Write-Host "Récapitulatife" -ForegroundColor Yellow
     Write-Host "---------------"
     Write-Host "DomainName        - $DomainName" -ForegroundColor DarkCyan
     Write-Host "DomainNetbiosName - $DomainNetbiosName" -ForegroundColor DarkCyan
