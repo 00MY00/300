@@ -25,6 +25,12 @@ For ([int]$i = 0;$i -lt 1;)
     Write-Host "Exemple : teampass"
     [string]$Name = Read-Host "► "
 
+    if ($myString -match '\w') {
+        break
+    }
+    else {
+        Write-Host "La variable est vide !"
+    }
 }
 
 
@@ -36,6 +42,12 @@ For ([int]$i = 0;$i -lt 1;)
     Write-Host "Exemple : local"
     [string]$ZoneName = Read-Host "► "
 
+    if ($myString -match '\w') {
+        break
+    }
+    else {
+        Write-Host "La variable est vide !"
+    }
 }
 
 # Recapitulatif
