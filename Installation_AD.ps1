@@ -1,7 +1,7 @@
 # DomainName
 For ([int]$i = 0;$i -lt 1;)
 {
-    Write-Host "\nEntez le nom de votre domaine !"
+    Write-Host "`nEntez le nom de votre domaine !"
     Write-Host "Exemple : example.local"
     [string]$DomainName = Read-Host "► "
 
@@ -17,7 +17,7 @@ For ([int]$i = 0;$i -lt 1;)
 # DomainNetbiosName
 For ([int]$i = 0;$i -lt 1;)
 {
-    Write-Host "\nEntez le Nom Domain Net bios !"
+    Write-Host "`nEntez le Nom Domain Net bios !"
     Write-Host "Exemple : EXAMPLE"
     [string]$DomainNetbiosName = Read-Host "► "
     $DomainNetbiosName = $DomainNetbiosName.ToUpper()
@@ -33,7 +33,7 @@ For ([int]$i = 0;$i -lt 1;)
 # Recapitulatife
 For ([int]$i = 0;$i -lt 1;)
 {
-    Write-Host "\n"
+    Write-Host "`n"
     Write-Host "Récapitulatife" -ForegroundColor Yellow
     Write-Host "---------------"
     Write-Host "DomainName        - $DomainName" -ForegroundColor DarkCyan
@@ -42,12 +42,12 @@ For ([int]$i = 0;$i -lt 1;)
     Write-Host "LogPath           - C:\Windows\NTDS" -ForegroundColor Magenta
     Write-Host "SysvolPath        - C:\Windows\SYSVOL" -ForegroundColor Magenta
     Write-Host "DatabasePath      - C:\Windows\NTDS" -ForegroundColor Magenta
-    Write-Host "\n"
+    Write-Host "`n"
     Write-Host "[OK] pour continuer !"
     [string]$Validation = Read-Host "► "
     $Validation = $Validation.ToUpper()
     if ($Validation -eq "OK") {
-        Write-Host "[OK] \n" -ForegroundColor Green
+        Write-Host "[OK] `n" -ForegroundColor Green
         break
     }
     else {
