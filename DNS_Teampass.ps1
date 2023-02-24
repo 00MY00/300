@@ -8,6 +8,7 @@ For ([int]$i = 0;$i -lt 1;)
 
     if ($IP -as [ipaddress]) {
         Write-Host "L'adresse IP est valide." -ForegroundColor Green
+        Start-Sleep 3
         break
     }
     else {
