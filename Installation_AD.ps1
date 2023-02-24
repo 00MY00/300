@@ -1,4 +1,4 @@
-# DomainName
+﻿# DomainName
 For ([int]$i = 0;$i -lt 1;)
 {
     Write-Host "`nEntez le nom de votre domaine !"
@@ -34,7 +34,7 @@ For ([int]$i = 0;$i -lt 1;)
 For ([int]$i = 0;$i -lt 1;)
 {
     Write-Host "`n"
-    Write-Host "Récapitulatife" -ForegroundColor Yellow
+    Write-Host "RÃ©capitulatife" -ForegroundColor Yellow
     Write-Host "---------------"
     Write-Host "DomainName        - $DomainName" -ForegroundColor DarkCyan
     Write-Host "DomainNetbiosName - $DomainNetbiosName" -ForegroundColor DarkCyan
@@ -55,7 +55,7 @@ For ([int]$i = 0;$i -lt 1;)
     }
 }
 
-# Installation des fonctionnalités d'Active Directory
+# Installation des fonctionnalitÃ©s d'Active Directory
 Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 
 # Configuration de l'Active Directory
@@ -76,9 +76,9 @@ Install-ADDSForest `
 
 if ($? -eq $True) {
     clear
-    Write-Host "Terminée !" -ForegroundColor Green
+    Write-Host "TerminÃ©e !" -ForegroundColor Green
     Write-Host "\n"
-    Write-Host "Récapitulatife"
+    Write-Host "RÃ©capitulatife"
     Write-Host "---------------"
     Write-Host "DomainName        - $DomainName"
     Write-Host "DomainNetbiosName - $DomainNetbiosName"
