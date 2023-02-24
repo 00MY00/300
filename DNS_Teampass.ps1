@@ -1,6 +1,7 @@
 ﻿# IP
 For ([int]$i = 0;$i -lt 1;)
 {
+    clear
     Write-Host "`nEntez l'IP v4 de la machine TeamPass !"
     Write-Host "Exemple : 192.168.0.10"
     [string]$IP = Read-Host "► "
@@ -19,6 +20,7 @@ For ([int]$i = 0;$i -lt 1;)
 # Name
 For ([int]$i = 0;$i -lt 1;)
 {
+    clear
     Write-Host "`nEntez le nom du DNS !"
     Write-Host "Exemple : teampass"
     [string]$Name = Read-Host "► "
@@ -29,6 +31,7 @@ For ([int]$i = 0;$i -lt 1;)
 # ZoneName
 For ([int]$i = 0;$i -lt 1;)
 {
+    clear
     Write-Host "`nEntez le nom de zone !"
     Write-Host "Exemple : local"
     [string]$ZoneName = Read-Host "► "
