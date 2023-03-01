@@ -33,7 +33,7 @@ For ([int]$i = 0;$i -lt 1;)
     Write-Host "Actuelle celectionée : '$netBiosName'"
     Write-Host "Exemple : EXAMPLE"
     [string]$DomainNetbiosName = Read-Host "► "
-    if ($maVariable -eq $null) {
+    if ($DomainNetbiosName -eq $null) {
         $DomainNetbiosName = "$netBiosName"
         if ($? -eq $True) {
             break
