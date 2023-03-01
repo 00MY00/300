@@ -7,7 +7,7 @@
 # Executer le script en Root
 apt  update -y
 apt  upgrade -y
-
+apt install net-tools -y
 # Installation des dépandances
 #erreur
 # apt  install apache2 php7.3 libapache2-mod-php7.3 mysql-server php7.3-mysql php7.3-gd php7.3-mbstring php7.3-xml
