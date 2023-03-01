@@ -111,7 +111,7 @@ echo "</body>" >> link.html
 echo "</html>" >> link.html
 
 
-echo "\033[35mhttp://localhost/TeamPass/install/install.php\033[00m"
+echo -e "\033[35mhttp://localhost/TeamPass/install/install.php\033[00m"
 
 
 lynx link.html
