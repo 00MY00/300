@@ -142,6 +142,10 @@ echo -e "Apache      : apache2"
 echo -e "PHP         : php7.4.x"
 echo -e "Timezone    : Europe\/Zurich"
 echo -e "\033[35mhttp://localhost/TeamPass/install/install.php\033[00m"
+echo -e "-----------------------"
+echo -e "Pour la supretion du fichier d'installation !"
+echo -e "rm -rf /var/www/html/TeamPass/install"
+
 
 # Pour naviger sur la page HTML avec le terminal !
 #- lynx link.html
