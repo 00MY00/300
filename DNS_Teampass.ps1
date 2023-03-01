@@ -142,7 +142,6 @@ if ($? -eq $True) {
     Write-Host "`n"
     Write-Host "`n"
     Write-Host "`n"
-    $pause = Read-Host "Entrée une touche pour terminer ! "
 }
 
 else {
@@ -152,12 +151,12 @@ else {
     Write-Host "`n"
     Write-Host "Info DNS "
     Get-DnsClientServerAddress
-    $pause = Read-Host "Entrée une touche pour terminer ! "
+    
 }
 
 Get-DnsServerResourceRecord -ZoneName "$DNSName.$ZoneName"
+Resolve-DnsName "$DNSName.$ZoneName" -Type AAAA
 
-
-
+$pause = Read-Host "Entrée une touche pour terminer ! "
 
 
