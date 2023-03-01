@@ -1,4 +1,10 @@
-﻿# DomainName
+﻿#################################################################
+# Pour les droi d'execution 'Set-ExecutionPolicy Unrestricted'  #
+# crée par Kuroakashiro                                         #
+#################################################################
+
+
+# DomainName
 For ([int]$i = 0;$i -lt 1;)
 {
     clear
@@ -18,17 +24,35 @@ For ([int]$i = 0;$i -lt 1;)
 # DomainNetbiosName
 For ([int]$i = 0;$i -lt 1;)
 {
+    $computerName = $env:COMPUTERNAME
+    $computerSystem = Get-WmiObject -Class Win32_ComputerSystem -ComputerName $computerName
+    $netBiosName = $computerSystem.Caption.split()[0]
+
     clear
-    Write-Host "`nEntez le Nom Domain Net bios !"
+    Write-Host "`nEntez le Nom Domain Net bios ci diferant ou fait entrer pour continuer."
+    Write-Host "Actuelle celectionée : '$netBiosName'"
     Write-Host "Exemple : EXAMPLE"
     [string]$DomainNetbiosName = Read-Host "► "
-    $DomainNetbiosName = $DomainNetbiosName.ToUpper()
-    if ($? -eq $True) {
-        break
+    if ($maVariable -eq $null) {
+        $DomainNetbiosName = "$netBiosName"
+        if ($? -eq $True) {
+            break
+        }
+        else {
+            Write-Host "Une erreur est survenu '$DomainNetbiosName' -> '$netBiosName'" -ForegroundColor Red
+        }
     }
     else {
-        Write-Host "Une erreur est survenu lord du changement en Majusqule de '$DomainNetbiosName'" -ForegroundColor Red
+        $DomainNetbiosName = $DomainNetbiosName.ToUpper()
+        if ($? -eq $True) {
+            break
+        }
+        else {
+            Write-Host "Une erreur est survenu lord du changement en Majusqule de '$DomainNetbiosName'" -ForegroundColor Red
+        }
     }
+
+    
 }
 
 
