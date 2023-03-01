@@ -12,7 +12,7 @@ apt  upgrade -y
 #erreur
 # apt  install apache2 php7.3 libapache2-mod-php7.3 mysql-server php7.3-mysql php7.3-gd php7.3-mbstring php7.3-xml
 apt install apache2 apache2-utils mariadb-server mariadb-client php7.4 libapache2-mod-php7.4 php7.4-mysql php-common php7.4-cli php7.4-common php7.4-json php7.4-opcache php7.4-readline php7.4-bcmath php7.4-curl php7.4-fpm php7.4-gd php7.4-xml php7.4-mbstring -y
-
+apt install php7.4-gmp -y
 # Change setings
 # max_execution_time = 60
 # date.timezone = Europ/Zurich
@@ -110,6 +110,7 @@ echo "<p1> Suprimée le repertoire Install qui se situ dans teampass pour vou lo
 echo "</body>" >> link.html
 echo "</html>" >> link.html
 
+systemctl restart apache2
 
 echo -e "\033[35mhttp://localhost/TeamPass/install/install.php\033[00m"
 
