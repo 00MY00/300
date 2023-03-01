@@ -59,7 +59,7 @@ chown -R www-data:www-data TeamPass
 chmod -R 775 /var/www/html/TeamPass
 
 # Create an Apache Virtual Host for Teampass
-
+# Potentelement pose problaime pour le HTTPS car la config est fait sur le port 80
 echo "<VirtualHost *:80>" > /etc/apache2/sites-available/teampass.conf
 echo "     ServerAdmin admin@module300.local" >> /etc/apache2/sites-available/teampass.conf
 echo "     DocumentRoot /var/www/html/TeamPass  " >> /etc/apache2/sites-available/teampass.conf
@@ -75,6 +75,27 @@ echo "     ErrorLog ${APACHE_LOG_DIR}/teampass_error.log" >> /etc/apache2/sites-
 echo "     CustomLog ${APACHE_LOG_DIR}/teampass_access.log combined" >> /etc/apache2/sites-available/teampass.conf
 echo " " >> /etc/apache2/sites-available/teampass.conf
 echo "</VirtualHost>" >> /etc/apache2/sites-available/teampass.conf
+
+# Configue pour le port 443 'HTTPS' retirer ci Bugs !
+echo "<VirtualHost *:443>" > /etc/apache2/sites-available/teampass.conf
+echo "     ServerAdmin admin@module300.local" >> /etc/apache2/sites-available/teampass.conf
+echo "     DocumentRoot /var/www/html/TeamPass  " >> /etc/apache2/sites-available/teampass.conf
+echo "     ServerName teampass.module300.local" >> /etc/apache2/sites-available/teampass.conf
+echo " " >> /etc/apache2/sites-available/teampass.conf
+echo "     <Directory /var/www/html/TeamPass>" >> /etc/apache2/sites-available/teampass.conf
+echo "          Options FollowSymlinks" >> /etc/apache2/sites-available/teampass.conf
+echo "          AllowOverride All" >> /etc/apache2/sites-available/teampass.conf
+echo "          Require all granted" >> /etc/apache2/sites-available/teampass.conf
+echo "     </Directory>" >> /etc/apache2/sites-available/teampass.conf
+echo " " >> /etc/apache2/sites-available/teampass.conf
+echo "     ErrorLog ${APACHE_LOG_DIR}/teampass_error.log" >> /etc/apache2/sites-available/teampass.conf
+echo "     CustomLog ${APACHE_LOG_DIR}/teampass_access.log combined" >> /etc/apache2/sites-available/teampass.conf
+echo " " >> /etc/apache2/sites-available/teampass.conf
+echo "</VirtualHost>" >> /etc/apache2/sites-available/teampass.conf
+
+
+
+
 
 nano /etc/apache2/sites-available/teampass.conf
 
@@ -112,9 +133,17 @@ echo "</html>" >> link.html
 
 systemctl restart apache2
 
+
+echo -e "Information "
+echo -e "ServerAdmin : admin@module300.local"
+echo -e "ServerName  : teampass.module300.local"
+echo -e "Directory   : /var/www/html/TeamPass"
+echo -e "Apache      : apache2"
+echo -e "PHP         : php7.4.x"
+echo -e "Timezone    : Europe\/Zurich"
 echo -e "\033[35mhttp://localhost/TeamPass/install/install.php\033[00m"
 
-
-lynx link.html
+# Pour naviger sur la page HTML avec le terminal !
+#- lynx link.html
 
 exit
