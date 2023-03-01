@@ -1,4 +1,7 @@
-﻿# IP
+﻿
+# Crée par Kuroakashiro
+
+# IP
 For ([int]$i = 0;$i -lt 1;)
 {
     clear
@@ -36,7 +39,7 @@ For ([int]$i = 0;$i -lt 1;)
 }
 
 
-# ZoneName
+# DNS ZoneName
 For ([int]$i = 0;$i -lt 1;)
 {
     clear
@@ -44,11 +47,11 @@ For ([int]$i = 0;$i -lt 1;)
     Write-Host "List DNS Server Zone"
     Get-DnsServerZone
     Write-Host ""
-    Write-Host "`nEntez le nom de zone !"
+    Write-Host "`nEntez le nom de terminaison de zone !"
     Write-Host "Exemple : local"
     [string]$ZoneName = Read-Host "► "
 
-    if ([string]::IsNullOrEmpty($Name)) {
+    if ([string]::IsNullOrEmpty($ZoneName)) {
         Write-Host "La variable est Vide !" -ForegroundColor Red
     }
     else {
@@ -56,6 +59,25 @@ For ([int]$i = 0;$i -lt 1;)
     }
 }
 
+# DNS Name
+For ([int]$i = 0;$i -lt 1;)
+{
+    clear
+    Write-Host ""
+    Write-Host "List DNS Server Zone"
+    Get-DnsServerZone
+    Write-Host ""
+    Write-Host "`nEntez le nom de la zone !"
+    Write-Host "Exemple : example"
+    [string]$DNSName = Read-Host "► "
+
+    if ([string]::IsNullOrEmpty($DNSName)) {
+        Write-Host "La variable est Vide !" -ForegroundColor Red
+    }
+    else {
+        break
+    }
+}
 
 # Ci besoin creation de la zone dns
 For ([int]$i = 0;$i -lt 1;)
@@ -66,12 +88,13 @@ For ([int]$i = 0;$i -lt 1;)
     Get-DnsServerZone
     Write-Host ""
     Write-Host "Ci vous voulez crée la zone DNS entrée ok cinon laiser vide"
-    [string]$ZoneDNS = Read-Host "► "
-    if ([string]::IsNullOrEmpty($Name)) {
+    [string]$Validation = Read-Host "► "
+    if ([string]::IsNullOrEmpty($Validation)) {
         break
     }
     else {
-        Add-DnsServerZone -Name "$ZoneName" -ZoneType Primary -ReplicationScope Domain
+        Add-DnsServerPrimaryZone -Name "$DNSName.$ZoneName" -ZoneFile "$DNSName.$ZoneName.dns"
+        if ($? -eq $True) {Write-Host "OK"; Start-Sleep 2;}
         break
     }
 
@@ -87,7 +110,7 @@ For ([int]$i = 0;$i -lt 1;)
     Write-Host "---------------"
     Write-Host "IP               - $IP" -ForegroundColor DarkCyan
     Write-Host "Name             - $Name" -ForegroundColor DarkCyan
-    Write-Host "ZoneName         - $ZoneName" -ForegroundColor DarkCyan
+    Write-Host "ZoneName         - $DNSName.$ZoneName" -ForegroundColor DarkCyan
     Write-Host "TTL              - 01:00:00" -ForegroundColor Magenta
     Write-Host "`n"
     Write-Host "[OK] pour continuer !"
@@ -103,7 +126,7 @@ For ([int]$i = 0;$i -lt 1;)
 }
 
 # Commande Final
-Add-DnsServerResourceRecordA -Name "$Name" -ZoneName "$ZoneName" -IPv4Address "$IP" -TimeToLive 01:00:00
+Add-DnsServerResourceRecordA -Name "$Name" -ZoneName "$DNSName.$ZoneName" -IPv4Address "$IP" -TimeToLive 01:00:00
 
 if ($? -eq $True) {
     clear
@@ -112,12 +135,10 @@ if ($? -eq $True) {
     Write-Host "---------------"
     Write-Host "IP               - $IP" -ForegroundColor DarkCyan
     Write-Host "Name             - $Name" -ForegroundColor DarkCyan
-    Write-Host "ZoneName         - $ZoneName" -ForegroundColor DarkCyan
+    Write-Host "ZoneName         - $DNSName.$ZoneName" -ForegroundColor DarkCyan
     Write-Host "TTL              - 01:00:00" -ForegroundColor Magenta
     Write-Host "`n"
     Write-Host "`n"
-    Write-Host "Info DNS "
-    Get-DnsClientServerAddress
     Write-Host "`n"
     $pause = Read-Host "Entrée une touche pour terminer ! "
 }
@@ -126,12 +147,13 @@ else {
     Write-Host "Code de Fin etrange !"
     Write-Host "Code : $?"
     Write-Host "`n"
+    Write-Host "`n"
     Write-Host "Info DNS "
     Get-DnsClientServerAddress
-    Write-Host "`n"
     $pause = Read-Host "Entrée une touche pour terminer ! "
 }
 
+Get-DnsServerResourceRecord -ZoneName "$DNSName.$ZoneName"
 
 
 
