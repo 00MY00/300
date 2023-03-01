@@ -1,5 +1,7 @@
 ﻿
-# Crée par Kuroakashiro
+#########################
+# Crée par Kuroakashiro #
+#########################
 
 # IP
 For ([int]$i = 0;$i -lt 1;)
