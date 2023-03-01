@@ -1,8 +1,10 @@
 #!/bin/bash
+# Crée par Kuroakashiro
 # Pour Ubuntu ou Debian ! 
 # Tuto : https://www.howtoforge.com/how-to-setup-teampass-password-manager-on-debian-11/
 # Mise a jour
 # Debian sudo user -> su - USERNAM
+# Executer le script en Root
 apt  update -y
 apt  upgrade -y
 
@@ -14,9 +16,11 @@ apt install apache2 apache2-utils mariadb-server mariadb-client php7.4 libapache
 # Change setings
 # max_execution_time = 60
 # date.timezone = Europ/Zurich
+# Potentielement il faudrais retirer le ';' avent openssl
 sed -i 's/ax_execution_time = 30/ax_execution_time = 60/g' /etc/php/7.4/apache2/php.ini
 sed -i 's/;date.timezon =/date.timezon = Europe\/Zurich/g' /etc/php/7.4/apache2/php.ini
 sed -i 's/;extension=gmp/extension=gmp/g' /etc/php/7.4/apache2/php.ini
+
 nano /etc/php/7.4/apache2/php.ini
 
 # Restart Apache2
@@ -48,6 +52,9 @@ cd /var/www/html/
 git clone https://github.com/nilsteampassnet/TeamPass.git
 
 # Change permissions
+# Changement du proprietaire du fichier et 
+# autorisation complaite sur le fichier sauf 
+# pour les autre utilisateur qui ne peuvent pas ecrire
 chown -R www-data:www-data TeamPass
 chmod -R 775 /var/www/html/TeamPass
 
