@@ -82,8 +82,10 @@ For ([int]$i = 0;$i -lt 1;)
     }
 }
 
-# Installation des fonctionnalitÃ©s d'Active Directory
+# Installation des fonctionnalités d'Active Directory
 Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+
+
 
 # Configuration de l'Active Directory
 Import-Module ADDSDeployment
@@ -101,11 +103,16 @@ Install-ADDSForest `
 -Force:$true
 
 
+# Fichier txt avec DN racine du serveur LDAP
+Import-Module ActiveDirectory
+$rootDSE = Get-ADRootDSE
+$rootDSE.defaultNamingContext >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+
 if ($? -eq $True) {
     clear
-    Write-Host "TerminÃ©e !" -ForegroundColor Green
+    Write-Host "Terminée !" -ForegroundColor Green
     Write-Host "\n"
-    Write-Host "RÃ©capitulatife"
+    Write-Host "Récapitulatife"
     Write-Host "---------------"
     Write-Host "DomainName        - $DomainName"
     Write-Host "DomainNetbiosName - $DomainNetbiosName"
@@ -117,7 +124,9 @@ if ($? -eq $True) {
 }
 
 
-
+Import-Module ActiveDirectory
+$rootDSE = Get-ADRootDSE
+$rootDSE.defaultNamingContext >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
 
 
 

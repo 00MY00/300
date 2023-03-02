@@ -13,6 +13,7 @@ apt install net-tools -y
 # apt  install apache2 php7.3 libapache2-mod-php7.3 mysql-server php7.3-mysql php7.3-gd php7.3-mbstring php7.3-xml
 apt install apache2 apache2-utils mariadb-server mariadb-client php7.4 libapache2-mod-php7.4 php7.4-mysql php-common php7.4-cli php7.4-common php7.4-json php7.4-opcache php7.4-readline php7.4-bcmath php7.4-curl php7.4-fpm php7.4-gd php7.4-xml php7.4-mbstring -y
 apt install php7.4-gmp -y
+apt install php-ldap -y
 # Change setings
 # max_execution_time = 60
 # date.timezone = Europ/Zurich
@@ -20,6 +21,8 @@ apt install php7.4-gmp -y
 sed -i 's/ax_execution_time = 30/ax_execution_time = 60/g' /etc/php/7.4/apache2/php.ini
 sed -i 's/;date.timezon =/date.timezon = Europe\/Zurich/g' /etc/php/7.4/apache2/php.ini
 sed -i 's/;extension=gmp/extension=gmp/g' /etc/php/7.4/apache2/php.ini
+sed -i 's/;extension=php_ldap.dll/extension=php_ldap.dll/g' /etc/php/7.4/apache2/php.ini
+apt install php-ldap -y
 
 nano /etc/php/7.4/apache2/php.ini
 
@@ -144,7 +147,14 @@ echo -e "Timezone    : Europe\/Zurich"
 echo -e "\033[35mhttp://localhost/TeamPass/install/install.php\033[00m"
 echo -e "-----------------------"
 echo -e "Pour la supretion du fichier d'installation !"
-echo -e "rm -rf /var/www/html/TeamPass/install"
+echo -e "rm -rf /var/www/html/TeamPass/install/"
+echo -e "-----------------------"
+echo -e "LDAP"
+echo -e "Hosts         : IP server Active Directory"
+echo -e "LDAP port     : 389"
+echo -e "Base DN       : Se trouve dans le bureau windows server"
+echo -e "              : DN_racine_du_serveur_LDAP.txt"
+
 
 
 # Pour naviger sur la page HTML avec le terminal !
