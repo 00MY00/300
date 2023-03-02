@@ -3,9 +3,8 @@
 # crée par Kuroakashiro                                         #
 #################################################################
 
-
+# Fichier txt avec DN racine du serveur LDAP
 Import-Module ActiveDirectory -ErrorAction SilentlyContinue
-
 if ($? -eq $True) {
     $rootDSE = Get-ADRootDSE -ErrorAction SilentlyContinue
     $rootDSE.defaultNamingContext > C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
@@ -117,24 +116,19 @@ Install-ADDSForest `
 -Force:$true
 
 
-# Fichier txt avec DN racine du serveur LDAP
-Import-Module ActiveDirectory
-$rootDSE = Get-ADRootDSE
-$rootDSE.defaultNamingContext >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+
 
 if ($? -eq $True) {
     clear
-    Write-Host "Terminée !" -ForegroundColor Green
-    Write-Host "\n"
-    Write-Host "Récapitulatife"
-    Write-Host "---------------"
-    Write-Host "DomainName        - $DomainName"
-    Write-Host "DomainNetbiosName - $DomainNetbiosName"
-    Write-Host "InstallDns        - True"
-    Write-Host "LogPath           - C:\Windows\NTDS"
-    Write-Host "SysvolPath        - C:\Windows\SYSVOL"
-    Write-Host "DatabasePath      - C:\Windows\NTDS"
-    Write-Host "\n"
+    "Terminée !" > C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
+    "Récapitulatife" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
+    "---------------" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
+    "DomainName        - $DomainName" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
+    "DomainNetbiosName - $DomainNetbiosName" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
+    "InstallDns        - True" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
+    "LogPath           - C:\Windows\NTDS" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
+    "SysvolPath        - C:\Windows\SYSVOL" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
+    "DatabasePath      - C:\Windows\NTDS" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
 }
 
 
