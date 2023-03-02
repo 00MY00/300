@@ -130,5 +130,5 @@ $rootDSE.defaultNamingContext >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_ser
 
 
 
-
+Start-Sleep 20
 
