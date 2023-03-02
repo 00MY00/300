@@ -4,6 +4,18 @@
 #################################################################
 
 
+Import-Module ActiveDirectory
+$rootDSE = Get-ADRootDSE -ErrorAction SilentlyContinue
+if ($? -eq $True) {
+    $rootDSE.defaultNamingContext > C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+    exit
+}   
+else {
+    Write-Host "`nUne fois l'Active Directory installée et le serveur re démarer `nR'executer le script pour avoir `n : DN_racine_du_serveur_LDAP.txt`n"
+}
+
+
+
 # DomainName
 For ([int]$i = 0;$i -lt 1;)
 {
@@ -124,9 +136,6 @@ if ($? -eq $True) {
 }
 
 
-Import-Module ActiveDirectory
-$rootDSE = Get-ADRootDSE
-$rootDSE.defaultNamingContext >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
 
 
 
