@@ -4,7 +4,7 @@
 #################################################################
 
 
-Import-Module ActiveDirectory
+Import-Module ActiveDirectory -ErrorAction SilentlyContinue
 $rootDSE = Get-ADRootDSE -ErrorAction SilentlyContinue
 if ($? -eq $True) {
     $rootDSE.defaultNamingContext > C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
