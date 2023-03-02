@@ -98,7 +98,19 @@ For ([int]$i = 0;$i -lt 1;)
 # Installation des fonctionnalités d'Active Directory
 Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 
-
+# Raport
+if ($? -eq $True) {
+    clear
+    "Terminée !" > C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
+    "Récapitulatife" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
+    "---------------" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
+    "DomainName        - $DomainName" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
+    "DomainNetbiosName - $DomainNetbiosName" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
+    "InstallDns        - True" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
+    "LogPath           - C:\Windows\NTDS" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
+    "SysvolPath        - C:\Windows\SYSVOL" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
+    "DatabasePath      - C:\Windows\NTDS" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
+}
 
 # Configuration de l'Active Directory
 Import-Module ADDSDeployment
@@ -118,22 +130,11 @@ Install-ADDSForest `
 
 
 
-if ($? -eq $True) {
-    clear
-    "Terminée !" > C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
-    "Récapitulatife" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
-    "---------------" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
-    "DomainName        - $DomainName" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
-    "DomainNetbiosName - $DomainNetbiosName" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
-    "InstallDns        - True" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
-    "LogPath           - C:\Windows\NTDS" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
-    "SysvolPath        - C:\Windows\SYSVOL" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
-    "DatabasePath      - C:\Windows\NTDS" >> C:\Users\$env:USERNAME\Desktop\Raport_Installation_AD.txt
-}
 
 
 
 
 
-Start-Sleep 20
+
+
 
