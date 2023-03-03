@@ -70,12 +70,14 @@ mysql_secure_installation
 
 # Login SQL
 echo ""
-echo "Copier et clik droit !"
 echo ""
+echo "Copier et clik droit !"
+echo "\033[35m________________________________________\033[00m"
 echo -e "\033[32mcreate database teampass;"
 echo -e "\033[32mgrant all privileges on teampass.* to teampass@localhost identified by 'password';\033[00m"
 echo -e "\033[32mflush privileges;"
 echo -e "\033[32mexit;\033[00m"
+echo "\033[35m________________________________________\033[00m"
 echo ""
 echo ""
 mysql -u root -p
