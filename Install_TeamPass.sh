@@ -5,6 +5,38 @@
 # Mise a jour
 # Debian sudo user -> su - USERNAM
 # Executer le script en Root
+
+# Teste de conexion Internet
+ping -c 1 www.googl.ch
+if [ $? -eq 0 ];
+then
+    echo -e "Internet est joiniable."
+if [ $? -gt 0 ];
+then
+    echo -e "Problaime pour accéder a Internet"
+    echo -e "Verifier votre DNS"
+    ping -c 1 8.8.8.8
+    if [ $? -eq 0 ];
+    then
+        echo -e "le test est concluent verifier votre DNS !"
+        read -p "Pause"
+        exit
+    else
+        echo -e "Verifier l'adressage IP, le Par-Feu, le routeur"
+        echo -e "Verifier que vous pouvez ping votre Gatewey"
+        echo -e "ci votre Gatewey est accésible et votre DNS fonctionne"
+        echo -e "Verifier le Par-Feu/Router que vous avez bien un accès a Internet dans votre routage."
+        read -p "Pause"
+        exit
+    fi
+
+else
+    echo -e "Problaime pour accéder a Internet"
+    echo -e "Verifier l'adressage IP, le Par-Feu, le routeur"
+    read -p "Pause" 
+    exit 
+fi
+
 apt  update -y
 apt  upgrade -y
 apt install net-tools -y
@@ -155,7 +187,17 @@ echo -e "LDAP port     : 389"
 echo -e "Base DN       : Se trouve dans le bureau windows server"
 echo -e "              : DN_racine_du_serveur_LDAP.txt"
 
-
+################################################
+#Ouvrez l'interface de configuration de Teampass en accédant à l'URL d'installation de l'application dans votre navigateur.
+#Accédez à l'onglet "LDAP" dans le menu de gauche.
+#Remplissez les champs du formulaire LDAP, tels que :
+#Serveur LDAP : L'adresse IP ou le nom de domaine complet (FQDN) du serveur LDAP.
+#Port LDAP : Le port LDAP sur lequel le serveur écoute (le port LDAP standard est 389).
+#Version LDAP : La version du protocole LDAP que le serveur utilise.
+#DN racine : Le DN (distinguished name) racine de l'arborescence LDAP.
+#Nom d'utilisateur et mot de passe : Les informations d'identification d'un compte LDAP ayant des privilèges suffisants pour accéder à l'annuaire LDAP.
+#Enregistrez les modifications et testez la connexion LDAP en cliquant sur le bouton "Tester la connexion LDAP".
+################################################
 
 # Pour naviger sur la page HTML avec le terminal !
 #- lynx link.html

@@ -7,7 +7,19 @@
 Import-Module ActiveDirectory -ErrorAction SilentlyContinue
 if ($? -eq $True) {
     $rootDSE = Get-ADRootDSE -ErrorAction SilentlyContinue
-    $rootDSE.defaultNamingContext > C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+    "####################################" > C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+    "|---------------------|" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+    "# DN LDAP de TeamPass" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+    "# " + $rootDSE.defaultNamingContext >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+    $x = Get-ADObject -Filter {Name -eq "Administrateur"} -Properties distinguishedName
+    $x = "$x"
+    $x = $x -replace ".*?(CN=[^,]+,){2}.*", '$0'
+    "|---------------------|" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+    "# Username pour LDAP" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+    "# Examples: cn=administrator,cn=users,dc=ad,dc=example,dc=com ;" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+    "# $x" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+    "|---------------------|" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+    "####################################" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
     exit
 }   
 else {
