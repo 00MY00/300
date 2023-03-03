@@ -7,15 +7,17 @@
 # Executer le script en Root
 
 # Teste de conexion Internet
-ping -c 1 www.googl.ch
+ping -c 1 www.googl.ch > /dev/null 2>&1
 if [ $? -eq 0 ];
 then
+    clear
     echo -e "Internet est joiniable."
-if [ $? -gt 0 ];
+elif [ $? -gt 0 ];
 then
+    clear
     echo -e "Problaime pour accéder a Internet"
     echo -e "Verifier votre DNS"
-    ping -c 1 8.8.8.8
+    ping -c 1 8.8.8.8 > /dev/null 2>&1
     if [ $? -eq 0 ];
     then
         echo -e "le test est concluent verifier votre DNS !"
