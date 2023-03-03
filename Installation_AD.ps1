@@ -10,7 +10,7 @@ if ($? -eq $True) {
     "####################################" > C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
     "|---------------------|" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
     "# DN LDAP de TeamPass" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
-    "# " + $rootDSE.defaultNamingContext >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+    "# CN=Users," + $rootDSE.defaultNamingContext >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
     $x = Get-ADObject -Filter {Name -eq "Administrateur"} -Properties distinguishedName
     $x = "$x"
     $x = $x -replace ".*?(CN=[^,]+,){2}.*", '$0'
@@ -19,7 +19,18 @@ if ($? -eq $True) {
     "# Examples: cn=administrator,cn=users,dc=ad,dc=example,dc=com ;" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
     "# $x" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
     "|---------------------|" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+    "# Distinguished Name : distinguishedname " >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+    "|---------------------|" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+    "# User name attribute : samaccountname" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+    "|---------------------|" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+    "# User Object Filter : (&(objectCategory=Person)(sAMAccountName=*))" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+    "|---------------------|" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+    "# Local and LDAP users : ON" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+    "|---------------------|" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
     "####################################" >> C:\Users\$env:USERNAME\Desktop\DN_racine_du_serveur_LDAP.txt
+
+    
+    New-NetFirewallRule -DisplayName "LDAP" -Direction Inbound -LocalPort 389 -Protocol TCP -Action Allow
     exit
 }   
 else {
