@@ -116,7 +116,7 @@ echo " " >> /etc/apache2/sites-available/teampass.conf
 echo "</VirtualHost>" >> /etc/apache2/sites-available/teampass.conf
 
 # Configue pour le port 443 'HTTPS' retirer ci Bugs !
-echo "<VirtualHost *:443>" > /etc/apache2/sites-available/teampass.conf
+echo "<VirtualHost *:443>" >> /etc/apache2/sites-available/teampass.conf
 echo "     ServerAdmin admin@module300.local" >> /etc/apache2/sites-available/teampass.conf
 echo "     DocumentRoot /var/www/html/TeamPass  " >> /etc/apache2/sites-available/teampass.conf
 echo "     ServerName teampass.module300.local" >> /etc/apache2/sites-available/teampass.conf
