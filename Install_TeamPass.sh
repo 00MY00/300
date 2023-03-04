@@ -48,6 +48,34 @@ apt install net-tools -y
 apt install apache2 apache2-utils mariadb-server mariadb-client php7.4 libapache2-mod-php7.4 php7.4-mysql php-common php7.4-cli php7.4-common php7.4-json php7.4-opcache php7.4-readline php7.4-bcmath php7.4-curl php7.4-fpm php7.4-gd php7.4-xml php7.4-mbstring -y
 apt install php7.4-gmp -y
 apt install php-ldap -y
+
+# -------------------- 04.03.2023
+# installation de LDAP
+clear
+echo ""
+echo ""
+echo -e "\033[35mEntéer le MOT de Passe pour l'administrateur LDAP\033[00m"
+echo ""
+read -p "Entrez une touche pour continuer !"
+apt install slapd ldap-utils -y
+echo ""
+# Status de LDAP
+clear
+echo ""
+echo ""
+systemctl status slapd | grep 'Active: active'
+if [ $? -gt 0 ]; # ci pas démarer re démare
+then
+    systemctl start slapd
+    systemctl status slapd | grep 'Active: active'
+fi
+echo ""
+read -p "Entrez une touche pour continuer !"
+
+# Démarage LDAP automatique
+systemctl enable slapd
+# -------------------- 04.03.2023 END
+
 # Change setings
 # max_execution_time = 60
 # date.timezone = Europ/Zurich
@@ -172,7 +200,7 @@ echo "</html>" >> link.html
 
 systemctl restart apache2
 
-
+echo -e "\033[33m"
 echo -e "Information "
 echo -e "ServerAdmin : admin@module300.local"
 echo -e "ServerName  : teampass.module300.local"
@@ -190,7 +218,9 @@ echo -e "Hosts         : IP server Active Directory"
 echo -e "LDAP port     : 389"
 echo -e "Base DN       : Se trouve dans le bureau windows server"
 echo -e "              : DN_racine_du_serveur_LDAP.txt"
-
+echo ""
+echo -e "\033[31mIl serais bien de redémarer le système pour apliquer les changements"
+echo -e "Suprimée le repertoire Install qui se situ dans teampass pour vou login aprè la configuration\033[00m"
 ################################################
 #Ouvrez l'interface de configuration de Teampass en accédant à l'URL d'installation de l'application dans votre navigateur.
 #Accédez à l'onglet "LDAP" dans le menu de gauche.
@@ -205,5 +235,28 @@ echo -e "              : DN_racine_du_serveur_LDAP.txt"
 
 # Pour naviger sur la page HTML avec le terminal !
 #- lynx link.html
+
+# -------------------- 04.03.2023
+echo -e "Information " > $PWD\Raport.txt
+echo -e "ServerAdmin : admin@module300.local" >> $PWD\Raport.txt
+echo -e "ServerName  : teampass.module300.local" >> $PWD\Raport.txt
+echo -e "Directory   : /var/www/html/TeamPass" >> $PWD\Raport.txt
+echo -e "Apache      : apache2" >> $PWD\Raport.txt
+echo -e "PHP         : php7.4.x" >> $PWD\Raport.txt
+echo -e "Timezone    : Europe\/Zurich" >> $PWD\Raport.txt
+echo -e "\033[35mhttp://localhost/TeamPass/install/install.php\033[00m" >> $PWD\Raport.txt
+echo -e "-----------------------" >> $PWD\Raport.txt
+echo -e "Pour la supretion du fichier d'installation !" >> $PWD\Raport.txt
+echo -e "rm -rf /var/www/html/TeamPass/install/" >> $PWD\Raport.txt
+echo -e "-----------------------" >> $PWD\Raport.txt
+echo -e "LDAP" >> $PWD\Raport.txt
+echo -e "Hosts         : IP server Active Directory" >> $PWD\Raport.txt
+echo -e "LDAP port     : 389" >> $PWD\Raport.txt
+echo -e "Base DN       : Se trouve dans le bureau windows server" >> $PWD\Raport.txt
+echo -e "              : DN_racine_du_serveur_LDAP.txt" >> $PWD\Raport.txt
+echo "" >> $PWD\Raport.txt
+echo -e "Suprimée le repertoire Install qui se situ dans teampass pour vou login aprè la configuration" >> $PWD\Raport.txt
+# -------------------- 04.03.2023 END
+
 
 exit
