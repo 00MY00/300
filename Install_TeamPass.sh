@@ -194,7 +194,7 @@ echo "<html>" >> link.html
 echo "<body>" >> link.html
 
 echo "<a href="http://localhost/TeamPass/install/install.php">Cliquez ici pour accéder au lien</a>" >> link.html
-echo "<p1> Suprimée le repertoire Install qui se situ dans teampass pour vou login aprè la configuration</p1>"
+echo "<p1> Suprimée le repertoire Install qui ce situ dans teampass pour vou login aprè la configuration</p1>"
 echo "</body>" >> link.html
 echo "</html>" >> link.html
 
@@ -220,7 +220,7 @@ echo -e "Base DN       : Se trouve dans le bureau windows server"
 echo -e "              : DN_racine_du_serveur_LDAP.txt"
 echo ""
 echo -e "\033[31mIl serais bien de redémarer le système pour apliquer les changements"
-echo -e "Suprimée le repertoire Install qui se situ dans teampass pour vou login aprè la configuration\033[00m"
+echo -e "Suprimée le repertoire Install qui ce situ dans teampass pour vou login aprè la configuration\033[00m"
 ################################################
 #Ouvrez l'interface de configuration de Teampass en accédant à l'URL d'installation de l'application dans votre navigateur.
 #Accédez à l'onglet "LDAP" dans le menu de gauche.
@@ -255,7 +255,7 @@ echo -e "LDAP port     : 389" >> $PWD/Raport.txt
 echo -e "Base DN       : Se trouve dans le bureau windows server" >> $PWD/Raport.txt
 echo -e "              : DN_racine_du_serveur_LDAP.txt" >> $PWD/Raport.txt
 echo "" >> $PWD/Raport.txt
-echo -e "Suprimée le repertoire Install qui se situ dans teampass pour vou login aprè la configuration" >> $PWD/Raport.txt
+echo -e "Suprimée le repertoire Install qui ce situ dans teampass pour vou login aprè la configuration" >> $PWD/Raport.txt
 # -------------------- 04.03.2023 END
 
 
