@@ -74,6 +74,12 @@ read -p "Entrez une touche pour continuer !"
 
 # Démarage LDAP automatique
 systemctl enable slapd
+
+# configuration UTF-8 LDAP client
+echo -e "\n# Set the default encoding to UTF-8\nUTF8" | sudo tee -a /etc/ldap/ldap.conf
+sudo systemctl restart slapd
+
+
 # -------------------- 04.03.2023 END
 
 # Change setings
