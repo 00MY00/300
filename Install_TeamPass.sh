@@ -237,25 +237,25 @@ echo -e "Suprimée le repertoire Install qui se situ dans teampass pour vou logi
 #- lynx link.html
 
 # -------------------- 04.03.2023
-echo -e "Information " > $PWD\Raport.txt
-echo -e "ServerAdmin : admin@module300.local" >> $PWD\Raport.txt
-echo -e "ServerName  : teampass.module300.local" >> $PWD\Raport.txt
-echo -e "Directory   : /var/www/html/TeamPass" >> $PWD\Raport.txt
-echo -e "Apache      : apache2" >> $PWD\Raport.txt
-echo -e "PHP         : php7.4.x" >> $PWD\Raport.txt
-echo -e "Timezone    : Europe\/Zurich" >> $PWD\Raport.txt
-echo -e "\033[35mhttp://localhost/TeamPass/install/install.php\033[00m" >> $PWD\Raport.txt
-echo -e "-----------------------" >> $PWD\Raport.txt
-echo -e "Pour la supretion du fichier d'installation !" >> $PWD\Raport.txt
-echo -e "rm -rf /var/www/html/TeamPass/install/" >> $PWD\Raport.txt
-echo -e "-----------------------" >> $PWD\Raport.txt
-echo -e "LDAP" >> $PWD\Raport.txt
-echo -e "Hosts         : IP server Active Directory" >> $PWD\Raport.txt
-echo -e "LDAP port     : 389" >> $PWD\Raport.txt
-echo -e "Base DN       : Se trouve dans le bureau windows server" >> $PWD\Raport.txt
-echo -e "              : DN_racine_du_serveur_LDAP.txt" >> $PWD\Raport.txt
-echo "" >> $PWD\Raport.txt
-echo -e "Suprimée le repertoire Install qui se situ dans teampass pour vou login aprè la configuration" >> $PWD\Raport.txt
+echo -e "Information " > $PWD/Raport.txt
+echo -e "ServerAdmin : admin@module300.local" >> $PWD/Raport.txt
+echo -e "ServerName  : teampass.module300.local" >> $PWD/Raport.txt
+echo -e "Directory   : /var/www/html/TeamPass" >> $PWD/Raport.txt
+echo -e "Apache      : apache2" >> $PWD/Raport.txt
+echo -e "PHP         : php7.4.x" >> $PWD/Raport.txt
+echo -e "Timezone    : Europe\/Zurich" >> $PWD/Raport.txt
+echo -e "\033[35mhttp://localhost/TeamPass/install/install.php\033[00m" >> $PWD/Raport.txt
+echo -e "-----------------------" >> $PWD/Raport.txt
+echo -e "Pour la supretion du fichier d'installation !" >> $PWD/Raport.txt
+echo -e "rm -rf /var/www/html/TeamPass/install/" >> $PWD/Raport.txt
+echo -e "-----------------------" >> $PWD/Raport.txt
+echo -e "LDAP" >> $PWD/Raport.txt
+echo -e "Hosts         : IP server Active Directory" >> $PWD/Raport.txt
+echo -e "LDAP port     : 389" >> $PWD/Raport.txt
+echo -e "Base DN       : Se trouve dans le bureau windows server" >> $PWD/Raport.txt
+echo -e "              : DN_racine_du_serveur_LDAP.txt" >> $PWD/Raport.txt
+echo "" >> $PWD/Raport.txt
+echo -e "Suprimée le repertoire Install qui se situ dans teampass pour vou login aprè la configuration" >> $PWD/Raport.txt
 # -------------------- 04.03.2023 END
 
 
