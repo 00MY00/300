@@ -156,10 +156,14 @@ iptables -P INPUT DROP
 
 iptables-save
 
-
 echo "" >> $back/Raport.txt
 echo "\033[32mConfiguration SSL pour HTTPS\033[00m" >> $back/Raport.txt
 echo "Port, \033[33m22, 80, 443\033[00m Ouvert sur la machine" >> $back/Raport.txt
+echo "" >> $back/Raport.txt
+
+echo "" >> $back/Raport.txt
+echo "Configuration SSL pour HTTPS" >> $back/Raport.txt
+echo "Port, 22, 80, 443 Ouvert sur la machine" >> $back/Raport.txt
 echo "" >> $back/Raport.txt
 
 
