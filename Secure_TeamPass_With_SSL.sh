@@ -48,6 +48,7 @@ nano domaintest.loc.sslv3.txt
 openssl x509 -req -in domaintest.loc.csr -CAkey domaintest.loc.ca.key -CA domaintest.loc.ca.cer -CAcreateserial -CAserial domaintest.loc.serial -out domaintest.loc.crt -days 3650 -sha256 -extfile domaintest.loc.sslv3.txt
 
 
+
 echo "NameVirtualHost teampass.module300.local:443" > /etc/apache2/sites-available/teampass.domaintest.loc.conf
 echo "<VirtualHost *:80>" >> /etc/apache2/sites-available/teampass.domaintest.loc.conf
 echo "     DocumentRoot /var/www/html/TeamPass.domaintest.loc" >> /etc/apache2/sites-available/teampass.domaintest.loc.conf
@@ -72,11 +73,45 @@ echo "     </Directory>" >> /etc/apache2/sites-available/teampass.domaintest.loc
 echo "     ErrorLog ${APACHE_LOG_DIR}/teampass_error.log" >> /etc/apache2/sites-available/teampass.domaintest.loc.conf
 echo "     CustomLog ${APACHE_LOG_DIR}/teampass_access.log combined" >> /etc/apache2/sites-available/teampass.domaintest.loc.conf
 echo "</VirtualHost>" >> /etc/apache2/sites-available/teampass.domaintest.loc.conf
+
+
 # DANS
 nano /etc/apache2/sites-available/teampass.domaintest.loc.conf
 
 
+
+echo "NameVirtualHost teampass.module300.local:443" > /etc/apache2/sites-available/teampass.conf
+echo "<VirtualHost *:80>" >> /etc/apache2/sites-available/teampass.conf
+echo "     DocumentRoot /var/www/html/TeamPass.domaintest.loc" >> /etc/apache2/sites-available/teampass.conf
+echo "     ServerName teampass.module300.local" >> /etc/apache2/sites-available/teampass.conf
+echo "     #Redirect permanent / https://teampass.domaintest.loc/" >> /etc/apache2/sites-available/teampass.conf
+echo "     ErrorLog ${APACHE_LOG_DIR}/teampass_error.log" >> /etc/apache2/sites-available/teampass.conf
+echo "     CustomLog ${APACHE_LOG_DIR}/teampass_access.log combined" >> /etc/apache2/sites-available/teampass.conf
+echo "</VirtualHost>" >> /etc/apache2/sites-available/teampass.conf
+echo "<VirtualHost *:443>" >> /etc/apache2/sites-available/teampass.conf
+echo "     ServerAdmin admin@module300.local" >> /etc/apache2/sites-available/teampass.conf
+echo "     DocumentRoot /var/www/html/TeamPass" >> /etc/apache2/sites-available/teampass.conf
+echo "     #DocumentRoot /var/www/html/teampass.domaintest.loc" >> /etc/apache2/sites-available/teampass.conf
+echo "     ServerName teampass.module300.local" >> /etc/apache2/sites-available/teampass.conf
+echo "     SSLEngine On" >> /etc/apache2/sites-available/teampass.conf
+echo "     SSLCertificateFile /etc/ssl/teampass.domaintest.loc/domaintest.loc.crt" >> /etc/apache2/sites-available/teampass.conf
+echo "     SSLCertificateKeyFile /etc/ssl/teampass.domaintest.loc/domaintest.loc.key" >> /etc/apache2/sites-available/teampass.conf
+echo "     <Directory /var/www/html/teampass.domaintest.loc>" >> /etc/apache2/sites-available/teampass.conf
+echo "          Options FollowSymlinks" >> /etc/apache2/sites-available/teampass.conf
+echo "          AllowOverride All" >> /etc/apache2/sites-available/teampass.conf
+echo "          Require all granted" >> /etc/apache2/sites-available/teampass.conf
+echo "     </Directory>" >> /etc/apache2/sites-available/teampass.conf
+echo "     ErrorLog ${APACHE_LOG_DIR}/teampass_error.log" >> /etc/apache2/sites-available/teampass.conf
+echo "     CustomLog ${APACHE_LOG_DIR}/teampass_access.log combined" >> /etc/apache2/sites-available/teampass.conf
+echo "</VirtualHost>" >> /etc/apache2/sites-available/teampass.conf
+
+
+
+
+
+
 #nano /etc/apache2/sites-available/teampass.domaintest.loc.conf
+
 
 #<VirtualHost *:80>
 #     DocumentRoot /var/www/html/TeamPass
@@ -122,5 +157,9 @@ iptables -P INPUT DROP
 iptables-save
 
 
+echo "" >> $back/Raport.txt
+echo "\033[32mConfiguration SSL pour HTTPS\033[00m" >> $back/Raport.txt
+echo "Port, \033[33m22, 80, 443\033[00m Ouvert sur la machine" >> $back/Raport.txt
+echo "" >> $back/Raport.txt
 
 
