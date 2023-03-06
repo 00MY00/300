@@ -54,7 +54,7 @@ apt install php-ldap -y
 clear
 echo ""
 echo ""
-echo -e "\033[35mEntéer le MOT de Passe pour l'administrateur LDAP\033[00m"
+echo -e "\033[35mVous allezdevoir entrer le MOT de Passe pour l'administrateur LDAP\033[00m"
 echo ""
 read -p "Entrez une touche pour continuer !"
 apt install slapd ldap-utils -y
