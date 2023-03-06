@@ -5,7 +5,7 @@
 # Mise a jour
 # Debian sudo user -> su - USERNAM
 # Executer le script en Root
-
+back=$PWD
 # Teste de conexion Internet
 ping -c 1 www.googl.ch > /dev/null 2>&1
 if [ $? -eq 0 ];
