@@ -165,6 +165,8 @@ P443=0
 P22=0
 P80=0
 
+apt-get install iptables-persistent -y
+
 while true; do
     clear
     echo -e "Sélectionnez les Ports a ouvrire \033[32m[]\033[00m Ouvert \033[31m[]\033[00m Fermer"
@@ -308,7 +310,7 @@ done
 
 systemctl restart apache2
 
-apt-get install iptables-persistent -y
+
 
 #iptables -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
 #iptables -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
