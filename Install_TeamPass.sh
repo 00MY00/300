@@ -181,7 +181,12 @@ systemctl restart apache2
 echo ""
 echo "" 
 echo -e "\033[32m"
-systemctl status apache2 | grep Active:
+systemctl status apache2 | grep 'Active: active'
+if [ $? -gt 0 ]; # ci pas démarer re démare
+then
+    systemctl start slapd
+    systemctl status slapd | grep 'Active: active'
+fi
 echo ""
 echo ""
 read -p "Entrez un touche pour continuer !"
