@@ -45,7 +45,7 @@ echo "[alt_names]" >> domaintest.loc.sslv3.txt
 echo "DNS.1 = teampass.domaintest.loc" >> domaintest.loc.sslv3.txt
 echo "DNS.2 = *.domaintest.loc" >> domaintest.loc.sslv3.txt
 # DANS
-nano domaintest.loc.sslv3.txt
+#nano domaintest.loc.sslv3.txt
 
 openssl x509 -req -in domaintest.loc.csr -CAkey domaintest.loc.ca.key -CA domaintest.loc.ca.cer -CAcreateserial -CAserial domaintest.loc.serial -out domaintest.loc.crt -days 3650 -sha256 -extfile domaintest.loc.sslv3.txt
 
