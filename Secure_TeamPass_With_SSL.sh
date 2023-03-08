@@ -163,7 +163,7 @@ P636=0
 P389=0
 P443=0
 P22=0
-
+P80=0
 
 while true; do
     clear
