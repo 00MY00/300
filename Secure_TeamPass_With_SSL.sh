@@ -295,6 +295,7 @@ while true; do
             fi
             ;;
         10)
+            clear
             break
             ;;
         *)
