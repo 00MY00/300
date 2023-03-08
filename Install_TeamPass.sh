@@ -92,7 +92,7 @@ sed -i 's/;extension=gmp/extension=gmp/g' /etc/php/7.4/apache2/php.ini
 sed -i 's/;extension=php_ldap.dll/extension=php_ldap.dll/g' /etc/php/7.4/apache2/php.ini
 apt install php-ldap -y
 
-nano /etc/php/7.4/apache2/php.ini
+# nano /etc/php/7.4/apache2/php.ini
 
 # Restart Apache2
 systemctl restart apache2
@@ -170,7 +170,7 @@ echo "</VirtualHost>" >> /etc/apache2/sites-available/teampass.conf
 
 
 
-nano /etc/apache2/sites-available/teampass.conf
+# nano /etc/apache2/sites-available/teampass.conf
 
 # redémarrage Teampass
 a2ensite teampass
