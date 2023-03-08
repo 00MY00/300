@@ -4,6 +4,8 @@
 ##########################################################################################
 
 back=$PWD
+localhostIP=$(hostname -I | awk '{print $1}')
+
 
 # update et install openssl
 #-sudo apt-get -y install openssl -y
@@ -90,13 +92,13 @@ echo "     CustomLog ${APACHE_LOG_DIR}/teampass_access.log combined" >> /etc/apa
 echo "</VirtualHost>" >> /etc/apache2/sites-available/teampass.conf
 echo "<VirtualHost *:443>" >> /etc/apache2/sites-available/teampass.conf
 echo "     ServerAdmin admin@module300.local" >> /etc/apache2/sites-available/teampass.conf
-echo "     DocumentRoot /var/www/html/TeamPass" >> /etc/apache2/sites-available/teampass.conf
+echo "     DocumentRoot /var/www/html/TeamPass/" >> /etc/apache2/sites-available/teampass.conf
 echo "     #DocumentRoot /var/www/html/teampass.domaintest.loc" >> /etc/apache2/sites-available/teampass.conf
 echo "     ServerName teampass.module300.local" >> /etc/apache2/sites-available/teampass.conf
 echo "     SSLEngine On" >> /etc/apache2/sites-available/teampass.conf
 echo "     SSLCertificateFile /etc/ssl/teampass.domaintest.loc/domaintest.loc.crt" >> /etc/apache2/sites-available/teampass.conf
 echo "     SSLCertificateKeyFile /etc/ssl/teampass.domaintest.loc/domaintest.loc.key" >> /etc/apache2/sites-available/teampass.conf
-echo "     <Directory /var/www/html/teampass.domaintest.loc>" >> /etc/apache2/sites-available/teampass.conf
+echo "     <Directory /var/www/html/TeamPass>" >> /etc/apache2/sites-available/teampass.conf
 echo "          Options FollowSymlinks" >> /etc/apache2/sites-available/teampass.conf
 echo "          AllowOverride All" >> /etc/apache2/sites-available/teampass.conf
 echo "          Require all granted" >> /etc/apache2/sites-available/teampass.conf
@@ -141,7 +143,8 @@ echo "</VirtualHost>" >> /etc/apache2/sites-available/teampass.conf
 
 a2enmod ssl
 
-ln -s /etc/apache2/sites-available/teampass.domaintest.loc.conf /etc/apache2/sites-enabled/teampass.domaintest.loc.conf
+# Potentielement inutile 
+# ln -s /etc/apache2/sites-available/teampass.domaintest.loc.conf /etc/apache2/sites-enabled/teampass.domaintest.loc.conf
 
 systemctl restart apache2
 
@@ -164,6 +167,5 @@ echo "" >> $back/Raport.txt
 echo "" >> $back/Raport.txt
 echo "Configuration SSL pour HTTPS" >> $back/Raport.txt
 echo "Port, 22, 80, 443 Ouvert sur la machine" >> $back/Raport.txt
+echo "Pour acéder a TeamPass HTTPS 'https://localhost' ou 'https://$localhostIP'" >> $back/Raport.txt
 echo "" >> $back/Raport.txt
-
-
