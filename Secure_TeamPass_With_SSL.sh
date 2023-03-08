@@ -170,14 +170,14 @@ while true; do
     echo -e "Sélectionnez les Ports a ouvrire \033[32m[]\033[00m Ouvert \033[31m[]\033[00m Fermer"
     echo -e "Port conseiler 53, 336, 443"
     echo -e "OUVERTURE de Port"
-    if [[ $P53 -eq 1 ]]; then echo -e "\33[32m[1] \033[00m   Port : 53   | DNS"; else echo -e "\33[31m[1] \033[00m   Port : 53   | DNS"; fi
-    if [[ $P88 -eq 1 ]]; then echo -e "\33[32m[2] \033[00m   Port : 88   | Kerberos"; else echo -e "\33[31m[2] \033[00m   Port : 88   | Kerberos"; fi
-    if [[ $P3269 -eq 1 ]]; then echo -e "\33[32m[3] \033[00m   Port : 3269 | LDAPS Catalog"; else echo -e "\33[31m[3] \033[00m   Port : 3269 | LDAPS Catalog"; fi
-    if [[ $P3268 -eq 1 ]]; then echo -e "\33[32m[4] \033[00m   Port : 3268 | LDAP Catalog"; else echo -e "\33[31m[4] \033[00m   Port : 3268 | LDAP Catalog"; fi
-    if [[ $P636 -eq 1 ]]; then echo -e "\33[32m[5] \033[00m   Port : 636  | LDAPS Secure"; else echo -e "\33[31m[5] \033[00m   Port : 636  | LDAPS Secure"; fi
-    if [[ $P389 -eq 1 ]]; then echo -e "\33[32m[6] \033[00m   Port : 389  | LDAP  Non chiffrée"; else echo -e "\33[31m[6] \033[00m   Port : 389  | LDAP  Non chiffrée"; fi
-    if [[ $P443 -eq 1 ]]; then echo -e "\33[32m[7] \033[00m   Port : 443  | HTTPS"; else echo -e "\33[31m[7] \033[00m   Port : 443  | HTTPS"; fi
-    if [[ $P443 -eq 1 ]]; then echo -e "\33[32m[8] \033[00m   Port : 22  | SSH"; else echo -e "\33[31m[8] \033[00m   Port : 22  | SSH"; fi
+    if [[ $P53 -eq 1 ]]; then echo -e "\033[32m[1] \033[00m   Port : 53   | DNS"; else echo -e "\033[31m[1] \033[00m   Port : 53   | DNS"; fi
+    if [[ $P88 -eq 1 ]]; then echo -e "\033[32m[2] \033[00m   Port : 88   | Kerberos"; else echo -e "\033[31m[2] \033[00m   Port : 88   | Kerberos"; fi
+    if [[ $P3269 -eq 1 ]]; then echo -e "\033[32m[3] \033[00m   Port : 3269 | LDAPS Catalog"; else echo -e "\033[31m[3] \033[00m   Port : 3269 | LDAPS Catalog"; fi
+    if [[ $P3268 -eq 1 ]]; then echo -e "\033[32m[4] \033[00m   Port : 3268 | LDAP Catalog"; else echo -e "\033[31m[4] \033[00m   Port : 3268 | LDAP Catalog"; fi
+    if [[ $P636 -eq 1 ]]; then echo -e "\033[32m[5] \033[00m   Port : 636  | LDAPS Secure"; else echo -e "\033[31m[5] \033[00m   Port : 636  | LDAPS Secure"; fi
+    if [[ $P389 -eq 1 ]]; then echo -e "\033[32m[6] \033[00m   Port : 389  | LDAP  Non chiffrée"; else echo -e "\033[31m[6] \033[00m   Port : 389  | LDAP  Non chiffrée"; fi
+    if [[ $P443 -eq 1 ]]; then echo -e "\033[32m[7] \033[00m   Port : 443  | HTTPS"; else echo -e "\033[31m[7] \033[00m   Port : 443  | HTTPS"; fi
+    if [[ $P443 -eq 1 ]]; then echo -e "\033[32m[8] \033[00m   Port : 22  | SSH"; else echo -e "\033[31m[8] \033[00m   Port : 22  | SSH"; fi
     echo -e "[9] EXIT"
     echo ""
     echo ""
