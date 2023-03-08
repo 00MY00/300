@@ -34,7 +34,7 @@ if ($? -eq $True) {
     exit
 }   
 else {
-    Write-Host "`nUne fois l'Active Directory installée et le serveur re démarer `nR'executer le script pour avoir `n : DN_racine_du_serveur_LDAP.txt`n"
+    Write-Host "`nUne fois l'Active Directory installée et le serveur re démarer `nRe éxecuter le script pour avoir `n : DN_racine_du_serveur_LDAP.txt`n"
     $Pause = Read-Host "Entrée une touche pour continuer !"
 }
 
