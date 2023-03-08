@@ -177,7 +177,7 @@ while true; do
     if [[ $P636 -eq 1 ]]; then echo -e "\033[32m[5] \033[00m   Port : 636  | LDAPS Secure"; else echo -e "\033[31m[5] \033[00m   Port : 636  | LDAPS Secure"; fi
     if [[ $P389 -eq 1 ]]; then echo -e "\033[32m[6] \033[00m   Port : 389  | LDAP  Non chiffrée"; else echo -e "\033[31m[6] \033[00m   Port : 389  | LDAP  Non chiffrée"; fi
     if [[ $P443 -eq 1 ]]; then echo -e "\033[32m[7] \033[00m   Port : 443  | HTTPS"; else echo -e "\033[31m[7] \033[00m   Port : 443  | HTTPS"; fi
-    if [[ $P443 -eq 1 ]]; then echo -e "\033[32m[8] \033[00m   Port : 22   | SSH"; else echo -e "\033[31m[8] \033[00m   Port : 22   | SSH"; fi
+    if [[ $P22 -eq 1 ]]; then echo -e "\033[32m[8] \033[00m   Port : 22   | SSH"; else echo -e "\033[31m[8] \033[00m   Port : 22   | SSH"; fi
     echo -e "\033[33m[9] \033[31mEXIT\033[00m"
     echo ""
     echo ""
