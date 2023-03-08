@@ -178,7 +178,7 @@ while true; do
     if [[ $P389 -eq 1 ]]; then echo -e "\033[32m[6] \033[00m   Port : 389  | LDAP  Non chiffrée"; else echo -e "\033[31m[6] \033[00m   Port : 389  | LDAP  Non chiffrée"; fi
     if [[ $P443 -eq 1 ]]; then echo -e "\033[32m[7] \033[00m   Port : 443  | HTTPS"; else echo -e "\033[31m[7] \033[00m   Port : 443  | HTTPS"; fi
     if [[ $P443 -eq 1 ]]; then echo -e "\033[32m[8] \033[00m   Port : 22  | SSH"; else echo -e "\033[31m[8] \033[00m   Port : 22  | SSH"; fi
-    echo -e "[9] EXIT"
+    echo -e "\033[33m[9] \033[31mEXIT\033[00m"
     echo ""
     echo ""
     read -p "Entrez le numéro du port que vous souhaitez ajouter : " port_number
