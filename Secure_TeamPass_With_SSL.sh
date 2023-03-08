@@ -51,7 +51,7 @@ openssl x509 -req -in domaintest.loc.csr -CAkey domaintest.loc.ca.key -CA domain
 
 # dans /etc/apache2/sites-available/000-default.conf
 # permet de forcéer la conexion en HTTPS
-sudo sed -i 's/#ServerName www.example.com/Redirect permanent \/ https:\/\/'"$HOSTNAME"'/' /etc/apache2/sites-available/000-default.conf
+sudo sed -i 's/#ServerName www.example.com/Redirect permanent \/ https:\/\/'"$localhostIP"'/' /etc/apache2/sites-available/000-default.conf
 
 
 
