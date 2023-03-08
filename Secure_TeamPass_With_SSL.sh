@@ -185,44 +185,100 @@ while true; do
 
     case $port_number in
         1) 
-            iptables -A INPUT -p tcp -m tcp --dport 53 -j ACCEPT
-            P53=1
-            Ports[0]="53"
+            if [[ $P53 -eq 1 ]]; 
+            then 
+                P53=0
+                iptables -D INPUT -p tcp -m tcp --dport 53 -j ACCEPT
+                Ports[0]=""
+            else 
+                P53=1
+                iptables -A INPUT -p tcp -m tcp --dport 53 -j ACCEPT
+                Ports[0]="53"
+            fi
             ;;
         2)
-            iptables -A INPUT -p tcp -m tcp --dport 88 -j ACCEPT
-            P88=1
-            Ports[1]="88"
+            if [[ $P88 -eq 1 ]]; 
+            then 
+                P88=0
+                iptables -D INPUT -p tcp -m tcp --dport 88 -j ACCEPT
+                Ports[1]=""
+            else 
+                P88=1
+                iptables -A INPUT -p tcp -m tcp --dport 88 -j ACCEPT
+                Ports[1]="88"
+            fi
             ;;
         3)
-            iptables -A INPUT -p tcp -m tcp --dport 3269 -j ACCEPT
-            P3269=1
-            Ports[2]="3269"
+            if [[ $P3269 -eq 1 ]]; 
+            then 
+                P3269=0
+                iptables -D INPUT -p tcp -m tcp --dport 3269 -j ACCEPT
+                Ports[2]=""
+            else 
+                P3269=1
+                iptables -A INPUT -p tcp -m tcp --dport 3269 -j ACCEPT
+                Ports[2]="3269"
+            fi
             ;;
         4)
-            iptables -A INPUT -p tcp -m tcp --dport 3268 -j ACCEPT
-            P3268=1
-            Ports[3]="3268"
+            if [[ $P3268 -eq 1 ]]; 
+            then 
+                P3268=0
+                iptables -D INPUT -p tcp -m tcp --dport 3268 -j ACCEPT
+                Ports[3]=""
+            else 
+                P3268=1
+                iptables -A INPUT -p tcp -m tcp --dport 3268 -j ACCEPT
+                Ports[3]="3268"
+            fi
             ;;
         5)
-            iptables -A INPUT -p tcp -m tcp --dport 636 -j ACCEPT
-            P636=1
-            Ports[4]="636"
+            if [[ $P636 -eq 1 ]]; 
+            then 
+                P636=0
+                iptables -D INPUT -p tcp -m tcp --dport 636 -j ACCEPT
+                Ports[4]=""
+            else 
+                P636=1
+                iptables -A INPUT -p tcp -m tcp --dport 636 -j ACCEPT
+                Ports[4]="636"
+            fi
             ;;
         6)
-            iptables -A INPUT -p tcp -m tcp --dport 389 -j ACCEPT
-            P389=1
-            Ports[5]="389"
+            if [[ $P389 -eq 1 ]]; 
+            then 
+                P389=0
+                iptables -D INPUT -p tcp -m tcp --dport 389 -j ACCEPT
+                Ports[5]=""
+            else 
+                P389=1
+                iptables -A INPUT -p tcp -m tcp --dport 389 -j ACCEPT
+                Ports[5]="389"
+            fi
             ;;
         7)
-            iptables -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
-            P443=1
-            Ports[6]="443"
+            if [[ $P443 -eq 1 ]]; 
+            then 
+                P443=0
+                iptables -D INPUT -p tcp -m tcp --dport 443 -j ACCEPT
+                Ports[6]=""
+            else 
+                P443=1
+                iptables -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
+                Ports[6]="443"
+            fi
             ;;
         8)
-            iptables -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
-            P22=1
-            Ports[7]="22"
+            if [[ $P22 -eq 1 ]]; 
+            then 
+                P22=1
+                iptables -D INPUT -p tcp -m tcp --dport 22 -j ACCEPT
+                Ports[7]=""
+            else 
+                P22=1
+                iptables -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
+                Ports[7]="22"
+            fi
             ;;
         9)
             break
