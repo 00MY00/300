@@ -63,13 +63,14 @@ echo ""
 clear
 echo ""
 echo ""
+echo -e "\033[32m"
 systemctl status slapd | grep 'Active: active'
 if [ $? -gt 0 ]; # ci pas démarer re démare
 then
     systemctl start slapd
     systemctl status slapd | grep 'Active: active'
 fi
-echo ""
+echo -e "\033[00m"
 read -p "Entrez une touche pour continuer !"
 
 # Démarage LDAP automatique
