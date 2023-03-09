@@ -3,7 +3,11 @@ Script d'installation pour le module de cours 300
 # OS utiliser -Debian-
 
 # Commande d'instalation:
-    -> git clone https://github.com/00MY00/300.git & cd 300/ & chmod 777 * & ./Install_TeamPass.sh
+    -> apt install git -y
+    -> git clone https://github.com/00MY00/300.git # Installe le Repertoire 300 de github
+    -> cd 300/  # Entre dans le répertoire
+    -> chmod 777 * # Donne les drois d'execution
+    -> ./Install_TeamPass.sh # Execute le script
 
 
 
