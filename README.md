@@ -1,7 +1,21 @@
 # 300
 Script d'installation pour le module de cours 300
-1) Executer le script d'installation teampass sur la machine Débiane
-2) Configurée Teampasse et suprimée le repertoire d'instalation
-3) Executer le script d'activation SSL pour teampass
-4) Executer le script PowerShell pou l'Active Directory sur le serveur Windows
-5) Utilisée le script PowerShell pour le DNS pour crée un DNS pour TeamPass
+# OS utiliser -Debian-
+
+# Commande d'instalation:
+    -> git clone https://github.com/00MY00/300.git & cd 300/ & chmod 777 * & ./Install_TeamPass.sh
+
+
+
+1) Executer la commande d'installation en utilisateur Root.
+2) Configurée Teampasse et suprimée le repertoire d'instalation pour pouvoir vous conecter.
+3) Executer le script d'activation SSL pour teampass.
+4) Executer le script PowerShell pour l'Active Directory sur le serveur Windows.
+5) Utilisée le script PowerShell pour le DNS pour crée un DNS pour TeamPass.
+
+# Information
+    - L'éxecution des script crée ou ajoute du contenu dans des fichier de Raport. pensée a les lire pour pluse d'aide.
+
+    - Pour crée le DNS relier a TeamPass il sufit de donner l'IP de la machine Debiane pour qu'elle soit accécible.
+
+    - Atention ci le DNS ne fonctionne pas commancer par vidée les cache de navigation.
