@@ -1,4 +1,4 @@
-# 300
+# M300
 Script d'installation pour le module de cours 300
 # OS utiliser -Debian-
 
