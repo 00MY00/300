@@ -328,6 +328,6 @@ echo "" >> $back/Raport.txt
 
 echo "" >> $back/Raport.txt
 echo "Configuration SSL pour HTTPS" >> $back/Raport.txt
-echo -e "Port, ${Ports[0]} ${Ports[1]} ${Ports[2]} ${Ports[3]} ${Ports[4]} ${Ports[5]} ${Ports[6]} ${Ports[7]}  Ouvert sur la machine" >> $back/Raport.txt
+echo -e "Port, ${Ports[0]} ${Ports[1]} ${Ports[2]} ${Ports[3]} ${Ports[4]} ${Ports[5]} ${Ports[6]} ${Ports[7]} ${Ports[8]} ${Ports[9]}  Ouvert sur la machine" >> $back/Raport.txt
 echo "Pour acéder a TeamPass HTTPS 'https://localhost' ou 'https://$localhostIP'" >> $back/Raport.txt
 echo "" >> $back/Raport.txt
