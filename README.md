@@ -22,4 +22,6 @@ Script d'installation pour le module de cours 300
 
     - Pour crée le DNS relier a TeamPass il sufit de donner l'IP de la machine Debiane pour qu'elle soit accécible.
 
-    - Atention ci le DNS ne fonctionne pas commancer par vidée les cache de navigation.
+    - Atention ci le DNS ne fonctionne pas commancer par vidée les cache de navigation. Powershell -> 'Clear-DnsServerCache'.
+
+    - Ci le DNS du serveur Windows ne fonctionne pas ajouter https://DNS pour y accéder cela peu arivée ci le port 80 ets désactivée. 
