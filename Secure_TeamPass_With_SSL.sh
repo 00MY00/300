@@ -86,6 +86,7 @@ P389=0
 P443=0
 P22=0
 P80=0
+P3306=0
 
 # Installation de Iptable
 apt-get install iptables-persistent -y
@@ -94,7 +95,7 @@ apt-get install iptables-persistent -y
 while true; do
     clear
     echo -e "Sélectionnez les Ports a ouvrire \033[32m[]\033[00m Ouvert \033[31m[]\033[00m Fermer"
-    echo -e "Port conseiler 53, 389, 443, 80"
+    echo -e "Port conseiler 53, 3306, 443, 80"
     echo -e "OUVERTURE de Port"
     if [[ $P53 -eq 1 ]]; then echo -e "\033[32m[1] \033[00m   Port : 53   | DNS"; else echo -e "\033[31m[1] \033[00m   Port : 53   | DNS"; fi
     if [[ $P88 -eq 1 ]]; then echo -e "\033[32m[2] \033[00m   Port : 88   | Kerberos"; else echo -e "\033[31m[2] \033[00m   Port : 88   | Kerberos"; fi
@@ -105,8 +106,9 @@ while true; do
     if [[ $P443 -eq 1 ]]; then echo -e "\033[32m[7] \033[00m   Port : 443  | HTTPS"; else echo -e "\033[31m[7] \033[00m   Port : 443  | HTTPS"; fi
     if [[ $P22 -eq 1 ]]; then echo -e "\033[32m[8] \033[00m   Port : 22   | SSH"; else echo -e "\033[31m[8] \033[00m   Port : 22   | SSH"; fi
     if [[ $P80 -eq 1 ]]; then echo -e "\033[32m[9] \033[00m   Port : 80   | HTTP"; else echo -e "\033[31m[9] \033[00m   Port : 80   | HTTP"; fi
+    if [[ $P3306 -eq 1 ]]; then echo -e "\033[32m[10] \033[00m   Port : 3306 | HTTP"; else echo -e "\033[31m[10] \033[00m   Port : 3306 | HTTP"; fi
     echo -e "\033[35m------------------\033[00m"
-    echo -e "\033[33m[10] \033[31mEXIT\033[00m"
+    echo -e "\033[33m[11] \033[31mEXIT\033[00m"
     echo ""
     echo ""
     read -p "Entrez le numéro du port que vous souhaitez ajouter : " port_number
@@ -220,7 +222,19 @@ while true; do
                 Ports[8]="80"
             fi
             ;;
-        10)
+        9)
+            if [[ $P3306 -eq 1 ]]; 
+            then 
+                P3306=1
+                iptables -D INPUT -p tcp -m tcp --dport 3306 -j ACCEPT
+                Ports[9]=""
+            else 
+                P3306=1
+                iptables -A INPUT -p tcp -m tcp --dport 3306 -j ACCEPT
+                Ports[9]="3306"
+            fi
+            ;;
+        11)
             clear
             break
             ;;
