@@ -239,7 +239,11 @@ systemctl restart apache2
 # Activation et sauvegard des regle configurée
 iptables -A INPUT -i lo -j ACCEPT
 iptables -P INPUT DROP
-iptables-save
+# 10.03.23
+iptables-save > /etc/iptables/rules.v4
+iptables-restore < /etc/iptables/rules.v4
+systemctl enable iptables.service
+
 
 # raport de l'execution du script
 echo "" >> $back/Raport.txt
