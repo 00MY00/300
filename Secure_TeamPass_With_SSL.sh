@@ -222,7 +222,7 @@ while true; do
                 Ports[8]="80"
             fi
             ;;
-        9)
+        10)
             if [[ $P3306 -eq 1 ]]; 
             then 
                 P3306=1
