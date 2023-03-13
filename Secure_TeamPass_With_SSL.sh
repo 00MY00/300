@@ -106,7 +106,7 @@ while true; do
     if [[ $P443 -eq 1 ]]; then echo -e "\033[32m[7] \033[00m   Port : 443  | HTTPS"; else echo -e "\033[31m[7] \033[00m   Port : 443  | HTTPS"; fi
     if [[ $P22 -eq 1 ]]; then echo -e "\033[32m[8] \033[00m   Port : 22   | SSH"; else echo -e "\033[31m[8] \033[00m   Port : 22   | SSH"; fi
     if [[ $P80 -eq 1 ]]; then echo -e "\033[32m[9] \033[00m   Port : 80   | HTTP"; else echo -e "\033[31m[9] \033[00m   Port : 80   | HTTP"; fi
-    if [[ $P3306 -eq 1 ]]; then echo -e "\033[32m[10] \033[00m   Port : 3306 | LDAP"; else echo -e "\033[31m[10] \033[00m   Port : 3306 | LDAP"; fi
+    if [[ $P3306 -eq 1 ]]; then echo -e "\033[32m[10] \033[00m   Port : 3306 | MYSQL"; else echo -e "\033[31m[10] \033[00m   Port : 3306 | MYSQL"; fi
     echo -e "\033[35m------------------\033[00m"
     echo -e "\033[33m[11] \033[31mEXIT\033[00m"
     echo ""
