@@ -95,7 +95,7 @@ apt-get install iptables-persistent -y
 while true; do
     clear
     echo -e "Sélectionnez les Ports a ouvrire \033[32m[]\033[00m Ouvert \033[31m[]\033[00m Fermer"
-    echo -e "Port conseiler 53, 3306, 443, 80"
+    echo -e "Port conseiler 53, 3306, 3268, 443, 80"
     echo -e "OUVERTURE de Port"
     if [[ $P53 -eq 1 ]]; then echo -e "\033[32m[1] \033[00m   Port : 53   | DNS"; else echo -e "\033[31m[1] \033[00m   Port : 53   | DNS"; fi
     if [[ $P88 -eq 1 ]]; then echo -e "\033[32m[2] \033[00m   Port : 88   | Kerberos"; else echo -e "\033[31m[2] \033[00m   Port : 88   | Kerberos"; fi
