@@ -1,5 +1,6 @@
 # M300
 Script d'installation pour le module de cours 300
+Crée par : Kuroakashiro 
 # OS utiliser -Debian 11.6.0 amd64 netinst-
 
 # Commande d'instalation:
