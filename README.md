@@ -16,7 +16,7 @@ Crée par : Kuroakashiro
 2) Configurée Teampasse et suprimée le repertoire d'instalation pour pouvoir vous conecter.
 3) Executer le script d'activation SSL pour teampass.
 4) Executer le script PowerShell pour l'Active Directory sur le serveur Windows.
-5) Utilisée le script PowerShell pour le DNS pour crée un DNS pour TeamPass.
+5) Utilisée le script PowerShell pour le DNS pour crée un Nom de Domaine pour TeamPass.
 
 # Information
     - L'éxecution des script crée ou ajoute du contenu dans des fichier de Raport. pensée a les lire pour pluse d'aide.
